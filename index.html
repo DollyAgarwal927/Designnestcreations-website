@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DesignnestCreations</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <style>
+    /* Pastel Gradient Animation for Logo */
+    .animated-text {
+      background: linear-gradient(270deg, #f6d365, #fda085, #a1c4fd, #c2e9fb, #d4fc79, #96e6a1);
+      background-size: 1200% 1200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 6s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Popup Styling */
+    .popup {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+    .popup.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      animation: pop 0.5s ease forwards;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    /* Fixed Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #ffffff;
+      z-index: 10;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body class="font-sans leading-relaxed text-gray-800 bg-gradient-to-r from-pink-50 via-purple-50 to-blue-50">
+  
+  
+<!-- Navigation Bar -->
+<nav class="bg-white shadow-lg fixed w-full z-40">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between">
+      <div class="flex space-x-4">
+        <a href="#home" class="flex items-center py-5 px-2 text-2xl font-extrabold animated-text">
+          DesignnestCreations
+          <img src="logo.jpg" alt="DesignnestCreations Logo" class="h-10"> 
+        </a>
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="#about" class="py-5 px-3 hover:text-pink-400">About</a>
+          <a href="#services" class="py-5 px-3 hover:text-pink-400">Services</a>
+          <a href="#products" class="py-5 px-3 hover:text-pink-400">Products</a>
+          <a href="#testimonials" class="py-5 px-3 hover:text-pink-400">Testimonials</a>
+          <a href="#contact" class="py-5 px-3 hover:text-pink-400">Contact</a>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center space-x-3">
+        <span id="cart-count" class="bg-pink-400 text-white px-3 py-1 rounded-full">🛒 0</span>
+        <div id="cart-message" style="display:Item added to the cart; color: black; font-weight: bold;">Item added to the cart!</div>
+
+        <button onclick="openCart()" class="px-4 py-2 bg-pink-500 text-white rounded-full">View Cart</button> 
+        <script>
+            function addToCart() {
+              alert("Items have been added to your cart!");
+            }
+          </script>
+          
+        </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200 text-gray-800 py-32 text-center mt-24">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4" data-aos="fade-down">Welcome to <span class="animated-text">DesignnestCreations</span></h1>
+    <p class="text-lg md:text-2xl" data-aos="fade-up" data-aos-delay="100">Where your ideas turn into art 💖</p>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-16 bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 text-gray-800">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-8">About Us</h2>
+    <p class="text-lg md:text-xl mb-8">
+      At DesignnestCreations, we specialize in crafting personalized designs that bring your vision to life. From logos to
+      custom products like tote bags, planners, t-shirts, and more, we provide top-notch creative services to meet your needs.
+    </p>
+    <p class="text-lg md:text-xl">
+      Our goal is to help you stand out and make a statement through unique designs that represent your brand's identity. 
+      We strive for excellence, creativity, and customer satisfaction in every project we undertake.
+    </p>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-16 bg-white text-gray-800">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Services</h2>
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="bg-pink-200 p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-xl font-semibold mb-4">Logo Making</h3>
+        <p>Custom and unique logos tailored for your brand identity.</p>
+      </div>
+      <div class="bg-purple-200 p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-xl font-semibold mb-4">Graphic Design</h3>
+        <p>From branding to marketing, we design creative visuals.</p>
+      </div>
+      <div class="bg-blue-200 p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-xl font-semibold mb-4">Customized Products</h3>
+        <p>Personalized tote bags, planners, diaries, t-shirts, and more!</p>
+      </div>
+      <!-- Added Printing Services -->
+      <div class="bg-green-200 p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-xl font-semibold mb-4">Printing Services</h3>
+        <p>High-quality printing services for all your custom products and designs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products Section -->
+ <!-- Cart Popup -->
+<section id="products" class="py-16 bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 text-gray-800">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Products</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-xl font-semibold mb-4">Tote Bags</h3>
+        <p>Customizable tote bags perfect for every occasion!</p>
+        <button onclick="addToCart('Tote Bag', 1)" class="mt-4 px-4 py-2 bg-pink-400 text-white rounded-lg hover:bg-pink-500 transition">Add to Cart</button>
+        <div class="mt-4">
+          <img src="totebag.jpg" alt="Tote Bags" class="w-full h-40 object-cover rounded-lg">
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-xl font-semibold mb-4">Planners & Diaries</h3>
+        <p>Stay organized with personalized planners and diaries.</p>
+        <button onclick="addToCart('planners and diaries', 1)" class="mt-4 px-4 py-2 bg-pink-400 text-white rounded-lg hover:bg-pink-500 transition">Add to Cart</button>
+        <div class="mt-4">
+          <img src="planner.jpg" alt="Planners & Diaries" class="w-full h-40 object-cover rounded-lg">
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-xl font-semibold mb-4">T-Shirts</h3>
+        <p>Wear your art with our custom-printed t-shirts.</p>
+        <button onclick="addToCart('t-shirts', 1)" class="mt-4 px-4 py-2 bg-pink-400 text-white rounded-lg hover:bg-pink-500 transition">Add to Cart</button>
+        <div class="mt-4">
+          <img src="tshirts.jpg" alt="T-Shirts" class="w-full h-40 object-cover rounded-lg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Custom Product Link on Index Page -->
+<section class="py-16 max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-8">Want a Customized Product?</h2>
+    <p class="mb-4 text-xl">Click below to fill out the form and get your product personalized!</p>
+    
+   
+    </a> 
+  </section>
+  
+<!-- Custom Product Form Section -->
+<section id="custom-product-form" class="py-16 max-w-6xl mx-auto px-4">
+  <h2 class="text-3xl font-bold mb-8 text-center">Fill Out the Form to Customize Your Product</h2>
+  <p class="mb-8 text-xl text-center">Please provide us with your details and preferences. Our team will get back to you shortly with the best options!</p>
+  
+  <form action="https://formspree.io/f/mgvkvpkr" method="POST" class="bg-white p-8 rounded-lg shadow-lg space-y-6">
+    
+    <!-- Name and Email -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col">
+        <label for="name" class="text-lg font-medium">Your Name</label>
+        <input type="text" id="name" name="name" class="p-3 border border-gray-300 rounded-lg" required>
+      </div>
+      <div class="flex flex-col">
+        <label for="email" class="text-lg font-medium">Your Email</label>
+        <input type="email" id="email" name="email" class="p-3 border border-gray-300 rounded-lg" required>
+      </div>
+    </div>
+       
+    <!-- Product Details -->
+    <div class="flex flex-col">
+      <label for="product" class="text-lg font-medium">Product Type</label>
+      <select id="product" name="product" class="p-3 border border-gray-300 rounded-lg" required>
+        <option value="tote-bag">Custom Tote Bag</option>
+        <option value="planner">Custom Planner</option>
+        <option value="t-shirt">Custom T-Shirt</option>
+      </select>
+    </div>
+    
+    <!-- Design Preferences -->
+    <div class="flex flex-col">
+      <label for="design" class="text-lg font-medium">Design Preferences</label>
+      <textarea id="design" name="design" class="p-3 border border-gray-300 rounded-lg" rows="4" placeholder="Describe your design preferences..." required></textarea>
+    </div>
+
+    <!-- Additional Information -->
+    <div class="flex flex-col">
+      <label for="additional-info" class="text-lg font-medium">Additional Information</label>
+      <textarea id="additional-info" name="additional-info" class="p-3 border border-gray-300 rounded-lg" rows="3" placeholder="Any additional details?" required></textarea>
+    </div>
+    
+    <!-- Submit Button -->
+    <div class="flex justify-center">
+      <button type="submit" class="text-lg font-semibold bg-pink-500 text-white px-8 py-3 rounded-lg hover:bg-pink-600 transition">Submit Your Order</button>
+    </div>
+  </form>
+</section>
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-16 bg-white text-gray-800">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-8">What Our Clients Say</h2>
+    <div class="flex justify-center space-x-6">
+      <div class="bg-pink-100 p-6 rounded-lg shadow-lg w-72">
+        <p class="italic">"The custom logo DesignnestCreations created for us was absolutely stunning!"</p>
+        <p class="font-semibold mt-4">Khushi</p>
+      </div>
+      <div class="bg-purple-100 p-6 rounded-lg shadow-lg w-72">
+        <p class="italic">"Amazing planners! They've helped keep our team organized."</p>
+        <p class="font-semibold mt-4">Avni</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form Section -->
+<section id="contact" class="py-16 bg-gray-50 text-gray-800">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+    <form action="https://formspree.io/f/mgvkvpkr" method="POST" class="space-y-4">
+      <input type="text" name="name" placeholder="Your Name" class="w-full p-4 rounded-lg border-2 border-gray-300">
+      <input type="email" name="email" placeholder="Your Email" class="w-full p-4 rounded-lg border-2 border-gray-300">
+      <textarea name="message" placeholder="Your Message" rows="4" class="w-full p-4 rounded-lg border-2 border-gray-300"></textarea>
+      <button type="submit" class="w-full px-4 py-2 bg-pink-400 text-white rounded-lg hover:bg-pink-500 transition">Send Message</button>
+    </form>
+  </div>
+</section>
+<div id="cart-popup" class="popup"> 
+    <div class="popup-content">
+      <h3>Your Cart</h3>
+      <div id="cart-items"></div>
+      <button onclick="closeCart()">Close</button>
+    </div>
+  </div>
+
+  <!-- Call Us Section -->
+<section id="call-us" class="bg-gray-800 text-white py-16">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h3 class="text-2xl font-semibold mb-4">Need Help? Call Us Now!</h3>
+    <p class="mb-4 text-xl">For inquiries or assistance with customization, feel free to reach out.</p>
+    <p class="mb-6 text-lg">📞 <a href="tel:+919351779102" class="text-pink-500">+91 9351779102</a></p>
+    <p class="text-lg">Or connect with us on <a href="https://wa.me/1234567890" class="text-pink-500" target="_blank">WhatsApp</a></p>
+    <!-- Instagram Link -->
+    <p class="text-lg mt-4">Follow us on Instagram: <a href="https://www.instagram.com/design_nest.creation?igsh=anp5em52a2Ewa2Rl&utm_source=qr" class="text-pink-500" target="_blank">design_nest.creation</a></p>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="bg-gray-800 text-white py-8">
+  <div class="max-w-6xl mx-auto text-center">
+    <p>&copy; 2025 DesignnestCreations. All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+   
+    let cart = []; // Array to hold the cart items
+function addToCart(product, quantity) {
+  const existingProduct = cart.find(item => item.product === product); // Check if the product already exists
+
+  if (existingProduct) {
+    existingProduct.quantity += quantity; // If product exists, increase its quantity
+  } else {
+    cart.push({ product, quantity }); // Otherwise, add it to the cart with quantity
+  }
+
+  updateCartCount(); // Update the cart count displayed in the nav
+}
+
+// Function to update the cart count in the navbar
+function updateCartCount() {
+  const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0); // Sum up all quantities
+  document.getElementById('cart-count').textContent = `🛒 ${cartCount}`; // Update the cart count display
+}
+
+// Function to open the cart popup
+function openCart() {
+  document.getElementById('cart-popup').classList.add('active'); // Display the popup
+  displayCartItems(); // Show cart items inside the popup
+}
+
+// Function to display cart items inside the popup
+function displayCartItems() {
+  const cartItemsContainer = document.getElementById('cart-items');
+  cartItemsContainer.innerHTML = ''; // Clear the previous cart items
+
+  if (cart.length > 0) {
+    cart.forEach(item => {
+      const cartItemElement = document.createElement('div');
+      cartItemElement.textContent = `${item.product} x${item.quantity}`; // Display product name and quantity
+      cartItemsContainer.appendChild(cartItemElement);
+    });
+  } else {
+    cartItemsContainer.textContent = 'Your cart is empty.'; // Show this message if the cart is empty
+  }
+}
+
+// Function to close the cart popup
+function closeCart() {
+  document.getElementById('cart-popup').classList.remove('active'); // Hide the popup
+}
+
+  // Pop-up functionality (example)
+  const popup = document.querySelector('.popup');
+  const popupButton = document.querySelector('#popup-button');
+  
+  popupButton.addEventListener('click', () => {
+    popup.classList.add('active');
+  });
+
+  // Cart functionality (example)
+  let cartCount = 0;
+  const cartCountElement = document.getElementById('cart-count');
+
+  // Function to add items to the cart
+function addToCart(product, quantity) {
+  const existingProduct = cart.find(item => item.product === product); // Check if the product already exists
+  if (existingProduct) {
+    existingProduct.quantity += quantity; // If product exists, increase its quantity
+  } else {
+    cart.push({ product, quantity }); // Otherwise, add it to the cart with quantity
+  }
+  updateCartCount(); 
+  displayCartItems(); 
+}
+function displayCartItems() {
+  const cartItemsContainer = document.getElementById('cart-items');
+  cartItemsContainer.innerHTML = '';
+
+  if (cart.length > 0) {
+    cart.forEach(item => {
+      const cartItemElement = document.createElement('div');
+      cartItemElement.textContent = `${item.product} x${item.quantity}`;
+      cartItemsContainer.appendChild(cartItemElement);
+    });
+  } else {
+    cartItemsContainer.textContent = 'Your cart is empty.';
+  }
+}
+</script>
+</body> 
+</html>
